@@ -1,15 +1,9 @@
-%define name iwlwifi-4965-ucode
-# Don't use last numbers for the version, we provide both -1 and -2 ucode apis
-%define version 228.57
-%define ucode_rel 21
-%define release %mkrel 1.%{ucode_rel}.1
-
 Summary: Intel Wireless WiFi Link 4965AGN microcode
-Name: %{name}
-Version: %{version}
-Release: %{release}
-Source0: http://intellinuxwireless.org/iwlwifi/downloads/%{name}-%{version}.1.%{ucode_rel}.tgz
-Source1: http://intellinuxwireless.org/iwlwifi/downloads/%{name}-%{version}.2.%{ucode_rel}.tgz
+Name: iwlwifi-4965-ucode
+Version: 228.57.2.23
+Release: %mkrel 1
+Source0: http://www.intellinuxwireless.org/iwlwifi/downloads/%{name}-%{version}.tgz
+Source1: http://www.intellinuxwireless.org/iwlwifi/downloads/iwlwifi-4965-ucode-228.57.1.21.tgz
 License: Proprietary
 Group: System/Kernel and hardware
 Url: http://intellinuxwireless.org/
@@ -22,20 +16,20 @@ present on your system in order for the Intel Wireless WiFi Link 4965AGN
 driver for Linux (iwl4965/iwlagn) to be able to operate on your system.
 
 %prep
-%setup -q -c -b 1
+%setup -q -a 1
+
+# provide old firmware with ucode_api=1 for compatibility with older kernels
+cp iwlwifi-4965-ucode-228.57.1.21/iwlwifi-4965-1.ucode .
+cp iwlwifi-4965-ucode-228.57.1.21/README.iwlwifi-4965-ucode \
+   README.iwlwifi-4965-ucode-1
+mv README.iwlwifi-4965-ucode README.iwlwifi-4965-ucode-2
 
 %build
 
 %install
 rm -rf %{buildroot}
 install -d %{buildroot}/lib/firmware
-find -name \*.ucode -exec install -m644 {} %{buildroot}/lib/firmware \;
-for d in `find -mindepth 1 -maxdepth 1 -type d`; do
-	ucode=`echo $d | cut -d . -f 4`
-	install -m644 $d/README.iwlwifi-4965-ucode \
-	              README.iwlwifi-4965-ucode-$ucode
-done
-install -m644 $d/LICENSE.iwlwifi-4965-ucode .
+install -m644 *.ucode %{buildroot}/lib/firmware/
 
 %clean
 rm -rf %{buildroot}
