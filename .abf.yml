@@ -1,3 +1,3 @@
 sources:
-  "iwlwifi-4965-ucode-228.57.1.21.tgz:"	fc98e4bdf6edb9681cc1b6de6cea31e27cbcab06
-  "iwlwifi-4965-ucode-228.61.2.24.tgz:"	1d67aabf37a8693cb57a2559597e4674e08823b9
+  iwlwifi-4965-ucode-228.57.1.21.tgz: fc98e4bdf6edb9681cc1b6de6cea31e27cbcab06
+  iwlwifi-4965-ucode-228.61.2.24.tgz: 1d67aabf37a8693cb57a2559597e4674e08823b9
