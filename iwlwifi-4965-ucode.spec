@@ -1,7 +1,7 @@
 Summary: Intel Wireless WiFi Link 4965AGN microcode
 Name: iwlwifi-4965-ucode
 Version: 228.61.2.24
-Release: %mkrel 1
+Release: 2
 Source0: http://www.intellinuxwireless.org/iwlwifi/downloads/%{name}-%{version}.tgz
 Source1: http://www.intellinuxwireless.org/iwlwifi/downloads/iwlwifi-4965-ucode-228.57.1.21.tgz
 License: Proprietary
