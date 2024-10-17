@@ -6,7 +6,7 @@ Source0: http://www.intellinuxwireless.org/iwlwifi/downloads/%{name}-%{version}.
 Source1: http://www.intellinuxwireless.org/iwlwifi/downloads/iwlwifi-4965-ucode-228.57.1.21.tgz
 License: Proprietary
 Group: System/Kernel and hardware
-Url: http://intellinuxwireless.org/
+Url: https://intellinuxwireless.org/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch: noarch
 
